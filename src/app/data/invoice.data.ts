@@ -73,7 +73,7 @@ export const invoiceData: Invoice = {
         total_proyecto: [
             {
                 nombre: "Mano de obra",
-                monto: 7879
+                monto: 11765.45
             },
             {
                 nombre: "Costo total",

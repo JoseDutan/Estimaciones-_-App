@@ -1,28 +1,59 @@
-<div>
-    <div>
+<div class="container mt-5">
+    <div class="text-center mb-3">
         <h1>ESTIMACION DE PROYECTO DE SOFTWARE</h1>
     </div>
-    <div>
-        <div>
-            <h2>CLIENTE</h2>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label><strong>NOMBRE DEL CLIENTE:</strong> {{invoice.cliente.nombre}}</label>
         </div>
-        <div>NOMBRE DEL CLIENTE: {{invoice.cliente.nombre}}</div>
-        <div>DURACION EL PROYECTO: {{invoice.cliente.tiempo}}</div>
-        <div>{{invoice.cliente.direccion}}</div>
-        <div>{{invoice.cliente.requerimiento}}</div>
-        <div>
-            <h2>EQUIPO DE TRABAJO</h2>
+        <div class="col-md-6 text-md-end">
+            <label><strong>DURACIÓN PROYECTO:</strong> {{invoice.cliente.tiempo}}</label>
         </div>
-        <table>
-            <thead>
-                <th>ROL</th>
-                <th>SUELDO</th>
-                <th>CANTIDAD</th>
-                <th>PARTICIPACION</th>
-                <th>SUELDO A RECIBIR</th>
-            </thead>
-            <tbody>
-                @for (item of invoice.cliente.roles; track $index) {
+    </div>
+    <div class="card">
+        <div class="card-header text-center">
+            <h5>DIRECCION</h5>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label><strong>CALLE PRINCIPAL:</strong> {{invoice.cliente.direccion.calle_principal}}</label>
+                </div>
+                <div class="col-md-4">
+                    <label><strong>CALLE SECUNDARIA:</strong> {{invoice.cliente.direccion.calle_secundaria}}</label>
+                </div>
+                <div class="col-md-4">
+                    <label><strong>NUMERACIÓN:</strong> {{invoice.cliente.direccion.numeracion}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header text-center">
+            <strong>REQUERIMIENTOS</strong>
+        </div>
+        <div class="card-body">
+            <p>{{invoice.cliente.requerimiento}}</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h5>EQUIPO DE TRABAJO</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered rounded mb-4">
+                <thead class="table-light">
+                    <tr>
+                        <th>ROL</th>
+                        <th>SUELDO</th>
+                        <th>CANTIDAD</th>
+                        <th>PARTICIPACION</th>
+                        <th>SUELDO A RECIBIR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of invoice.cliente.roles; track $index) {
                     <tr>
                         <td>{{item.rol}}</td>
                         <td>{{item.sueldo}}</td>
@@ -30,41 +61,82 @@
                         <td>{{item.participacion}}</td>
                         <td>{{item.mano_obra}}</td>
                     </tr>
-                }
-            </tbody>
-        </table>
-        <div>
-            <h2>COSTOS ADICIONALES</h2>
-        </div>
-        <table>
-            <thead>
-                <th>SERVICIOS</th>
-                <th>COSTO</th>
-            </thead>
-            <tbody>
-                @for (item of invoice.infoFinanzas.costos_ad; track $index) {
-                    <tr>
-                        <td>{{item.nombre}}</td>
-                        <td>{{item.monto}}</td>
+                    }
+                    <tr class="highlight">
+                        <td colspan="4" class="text-end"><strong>TOTAL</strong></td>
+                        <td><strong>${{invoice.infoFinanzas.total_proyecto[0].monto}}</strong></td>
                     </tr>
-                }
-            </tbody>
-        </table>
-        <div>
-            <h2>TOTAL PROYECTO</h2>
+                </tbody>
+            </table>
         </div>
-        <table>
-            <thead>
-                <th></th>
-            </thead>
-            <tbody>
-                @for (item of invoice.infoFinanzas.total_proyecto; track $index) {
-                    <tr>
-                        <td>{{item.nombre}}</td>
-                        <td>{{item.monto}}</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+    </div>
+    <div class="row mt-3">
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>COSTOS ADICIONALES</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>SERVICIO</th>
+                                <th>COSTO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of invoice.infoFinanzas.costos_ad; track $index) {
+                            <tr>
+                                <td>{{item.nombre}}</td>
+                                <td>{{item.monto}}</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>TOTAL PROYECTO</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>REFERENCIA</th>
+                                <th>COSTO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of invoice.infoFinanzas.total_proyecto; track $index) {
+
+                            
+                            @if ($index == 6){
+                                <tr>
+                                    <td>{{item.nombre}}</td>
+                                    <div style="background-color: lightgreen;">
+                                        <td>{{item.monto}}</td>
+                                    </div>
+                                </tr>
+                                
+                            }@else {
+                                <tr>
+                                    <td>{{item.nombre}}</td>
+                                    <td>{{item.monto}}</td>
+                                </tr>
+                            }
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
