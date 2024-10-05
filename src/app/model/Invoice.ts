@@ -1,7 +1,7 @@
 import { Cliente } from "./Cliente";
-import { DetFinanciero } from "./InfoFinanzas";
+import { InfoFinanciero } from "./InfoFinanzas";
 
 export class Invoice{
     cliente!:Cliente;
-    infoFinanzas!:DetFinanciero
+    infoFinanzas!:InfoFinanciero;
 }
