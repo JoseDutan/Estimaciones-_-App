@@ -28,7 +28,7 @@
                         <td>{{item.sueldo}}</td>
                         <td>{{item.cantidad}}</td>
                         <td>{{item.participacion}}</td>
-                        <td>{{item.sueldoARecibir}}</td>
+                        <td>{{item.mano_obra}}</td>
                     </tr>
                 }
             </tbody>
@@ -58,7 +58,7 @@
                 <th></th>
             </thead>
             <tbody>
-                @for (item of invoice.infoFinanzas.costo_total; track $index) {
+                @for (item of invoice.infoFinanzas.costos_ad; track $index) {
                     <tr>
                         <td>{{item.nombre}}</td>
                         <td>{{item.monto}}</td>
@@ -71,33 +71,7 @@
                 <th></th>
             </thead>
             <tbody>
-                @for (item of invoice.infoFinanzas.nomina_mensual; track $index) {
-                    <tr>
-                        <td>{{item.nombre}}</td>
-                        <td>{{item.monto}}</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <table>
-            <thead>
-                <th></th>
-            </thead>
-            <tbody>
-                @for (item of invoice.infoFinanzas.precio_venta; track $index) {
-                    <tr>
-                        <td>{{item.nombre}}</td>
-                        <td>{{item.monto}}</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <table>
-            <thead>
-                <th></th>
-            </thead>
-            <tbody>
-                @for (item of invoice.infoFinanzas.utilidad; track $index) {
+                @for (item of invoice.infoFinanzas.total_proyecto; track $index) {
                     <tr>
                         <td>{{item.nombre}}</td>
                         <td>{{item.monto}}</td>

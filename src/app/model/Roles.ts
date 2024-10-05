@@ -1,7 +1,7 @@
 export class Roles{
     rol!:String;
     sueldo!:String;
-    cantidad!:number;
     participacion!:String;
-    sueldoARecibir!:string
+    cantidad!:number
+    mano_obra!:string
 }
