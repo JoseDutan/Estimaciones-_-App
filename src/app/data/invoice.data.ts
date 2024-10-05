@@ -6,32 +6,42 @@ export const invoiceData: Invoice = {
         nombre: "Acme",
         direccion: "Quito, Ecuador",
         requerimiento: "requiere crear una aplicación utilizando Angular para calcular el costo total de un proyecto de desarrollo de software.",
-        tiempo: "3 Meses",
+        tiempo: "3 MESES",
         roles: [
             {
                 rol: "GERENTE",
-                sueldo: "486,14",
-                participacion: "20%"
+                sueldo: "780.23",
+                cantidad: 1,
+                participacion: "20%",
+                sueldoARecibir:"$468.14"
             },
             {
                 rol: "LIDER",
-                sueldo: "2340,70",
-                participacion: "100%"
+                sueldo: "780.23",
+                cantidad: 1,
+                participacion: "100%",
+                sueldoARecibir:"2340.70"
             },
             {
                 rol: "DESARROLADOR",
-                sueldo: "1967,75",
-                participacion: "100%"
+                sueldo: "656.58",
+                cantidad:4,
+                participacion: "100%",
+                sueldoARecibir:"7879"
             },
             {
                 rol: "TESTERS",
-                sueldo: "492,43",
-                participacion: "25%"
+                sueldo: "656.58",
+                cantidad: 1,
+                participacion: "25%",
+                sueldoARecibir:"492.44"
             },
             {
                 rol: "INFRAESTRUCTURA",
-                sueldo: "595,17",
-                participacion: "25%"
+                sueldo: "780.23",
+                cantidad: 1,
+                participacion: "25%",
+                sueldoARecibir:"585.18"
             }
 
         ]
@@ -39,21 +49,27 @@ export const invoiceData: Invoice = {
     infoFinanzas: {
         costos_ad: [
             {
-                nombre: "Mano de obra",
-                monto: 11765.45
-            },
-            {
-                nombre: "Alquiler de computadoras",
-                monto: 1200
+                nombre: "Internet",
+                monto: 135
             },
             {
                 nombre: "Alquiler de oficina",
                 monto: 1350
             },
             {
-                nombre: "Internet",
-                monto: 135
+                nombre: "Alquiler de computadoras",
+                monto: 1200
             },
+            {
+                nombre: "Mano de obra",
+                monto: 11765.45
+            },
+            
+            {
+                nombre: "Alquiler de oficina",
+                monto: 1350
+            },
+            
         ],
         costo_total: [
             {

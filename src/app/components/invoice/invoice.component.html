@@ -1,30 +1,45 @@
 <div>
     <div>
-        <h2>ESTIMACION DE PROYECTO DE SOFTWARE</h2>
+        <h1>ESTIMACION DE PROYECTO DE SOFTWARE</h1>
     </div>
     <div>
-        <h2>CLIENTE</h2>
-        <div>{{invoice.cliente.nombre}}</div>
+        <div>
+            <h2>CLIENTE</h2>
+        </div>
+        <div>NOMBRE DEL CLIENTE: {{invoice.cliente.nombre}}</div>
+        <div>DURACION EL PROYECTO: {{invoice.cliente.tiempo}}</div>
         <div>{{invoice.cliente.direccion}}</div>
         <div>{{invoice.cliente.requerimiento}}</div>
-        <div>{{invoice.cliente.tiempo}}</div>
+        <div>
+            <h2>EQUIPO DE TRABAJO</h2>
+        </div>
         <table>
             <thead>
-                <th></th>
+                <th>ROL</th>
+                <th>SUELDO</th>
+                <th>CANTIDAD</th>
+                <th>PARTICIPACION</th>
+                <th>SUELDO A RECIBIR</th>
             </thead>
             <tbody>
                 @for (item of invoice.cliente.roles; track $index) {
                     <tr>
                         <td>{{item.rol}}</td>
                         <td>{{item.sueldo}}</td>
+                        <td>{{item.cantidad}}</td>
                         <td>{{item.participacion}}</td>
+                        <td>{{item.sueldoARecibir}}</td>
                     </tr>
                 }
             </tbody>
         </table>
+        <div>
+            <h2>COSTOS ADICIONALES</h2>
+        </div>
         <table>
             <thead>
-                <th></th>
+                <th>SERVICIOS</th>
+                <th>COSTO</th>
             </thead>
             <tbody>
                 @for (item of invoice.infoFinanzas.costos_ad; track $index) {
@@ -35,6 +50,9 @@
                 }
             </tbody>
         </table>
+        <div>
+            <h2>TOTAL PROYECTO</h2>
+        </div>
         <table>
             <thead>
                 <th></th>
