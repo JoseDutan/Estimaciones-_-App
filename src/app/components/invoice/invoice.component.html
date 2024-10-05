@@ -13,8 +13,12 @@
                 <th></th>
             </thead>
             <tbody>
-                @for (item of items; track $index) {
-                    
+                @for (item of invoice.cliente.roles; track $index) {
+                    <tr>
+                        <td>{{item.rol}}</td>
+                        <td>{{item.sueldo}}</td>
+                        <td>{{item.participacion}}</td>
+                    </tr>
                 }
             </tbody>
         </table>
