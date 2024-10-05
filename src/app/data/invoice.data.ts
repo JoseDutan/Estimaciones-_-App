@@ -1,3 +1,4 @@
+import { DetFinanciero } from "../model/InfoFinanzas";
 import { Invoice } from "../model/Invoice";
 
 export const invoiceData: Invoice = {
@@ -34,5 +35,42 @@ export const invoiceData: Invoice = {
             }
 
         ]
+    },
+    infoFinanzas:{
+        costos_ad:[
+            {
+                nombre:"Mano de obra",
+                monto:11765.45
+            },
+            {
+                nombre:"Alquiler de computadoras",
+                monto:1200
+            },
+            {
+                nombre:"Alquiler de oficina",
+                monto:1350
+            },
+            {
+                nombre:"Internet",
+                monto:135
+            },
+        ],
+        costo_total:{
+            nombre:"Costo total",
+            monto:14450.45
+        },
+        nomina_mensual:{
+            nombre:"Nomina mensual",
+            monto:5623.62   
+        },
+        precio_venta:{
+            nombre:"Precio de venta",
+            monto:21250.67   
+        },
+        utilidad:{
+            nombre:"Utilidad",
+            monto:6800.21
+        },
     }
+
 }
