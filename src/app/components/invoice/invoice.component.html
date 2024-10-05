@@ -58,19 +58,6 @@
                 <th></th>
             </thead>
             <tbody>
-                @for (item of invoice.infoFinanzas.costos_ad; track $index) {
-                    <tr>
-                        <td>{{item.nombre}}</td>
-                        <td>{{item.monto}}</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <table>
-            <thead>
-                <th></th>
-            </thead>
-            <tbody>
                 @for (item of invoice.infoFinanzas.total_proyecto; track $index) {
                     <tr>
                         <td>{{item.nombre}}</td>
